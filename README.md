@@ -56,7 +56,7 @@ git branch --list -a
 To switch to a specific branch and explore a concept, use the following command:
 
 ```sh
-git branch branch-name
+git switch branch-name
 ```
 
 Replace `branch-name` with the name of the branch you're interested in. Each branch contains a unique README.md file that provides detailed information about the concept covered.
