@@ -1,6 +1,6 @@
 # Learn Vue 3 with Bingyang
 
-Welcome! This repository is designed for my free YouTube course <a href="" target="_blank">"Learn Vue 3 with Bingyang" ![Static Badge](https://img.shields.io/badge/YouTube-white?logo=youtube&logoColor=red)</a>. This repository provides hands-on coding examples covering a wide range of Vue.js concepts. Each Git branch within this repository focuses on a specific Vue.js feature or concept, offering a unique, isolated environment for learners to explore and understand Vue's capabilities in depth.
+Welcome! This repository is designed for my free YouTube course <a href="https://www.youtube.com/playlist?list=PLqq9AhcMm2oMvar6SRrKdCQsrBUbYicqA" target="_blank">"Learn Vue 3 with Bingyang" ![Static Badge](https://img.shields.io/badge/YouTube-white?logo=youtube&logoColor=red)</a>. This repository provides hands-on coding examples covering a wide range of Vue.js concepts. Each Git branch within this repository focuses on a specific Vue.js feature or concept, offering a unique, isolated environment for learners to explore and understand Vue's capabilities in depth.
 
 ## Vue Concepts Covered
 
