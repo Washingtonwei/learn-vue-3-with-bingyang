@@ -1,13 +1,29 @@
 <template>
-    <div>
-        <h1>Welcome to the blog posts page!</h1>
-        <p>
-            Here you can find all the blog posts that have been published by our
-            authors. Click on any of them to read more.
-        </p>
+    <div class="blog-posts-layout">
+        <aside class="blog-post-list">
+            <BlogPostList></BlogPostList>
+        </aside>
+        <main class="blog-post-content">
+            <router-view></router-view>
+        </main>
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import BlogPostList from '@/components/BlogPostList.vue'
+</script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.blog-posts-layout {
+    display: flex;
+    gap: 1rem;
+
+    .blog-post-list {
+        flex: 0 0 25%
+    }
+
+    .blog-post-content {
+        flex: 0 0 75%;
+    }
+}
+</style>
