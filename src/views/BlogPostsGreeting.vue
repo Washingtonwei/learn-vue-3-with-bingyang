@@ -5,10 +5,40 @@
             Here you can find all the blog posts that have been published by our
             authors. Click on any of them to read more.
         </h2>
+        <button @click="goToRandomBlogPost">Show Random Blog Post</button>
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import api from '@/apis/blogPosts'
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const blogPosts = ref([])
+const router = useRouter()
+
+// Fetch all blog posts on component mount
+onMounted(loadBlogPosts)
+
+async function loadBlogPosts() {
+    try {
+        blogPosts.value = await api.findAll()
+    } catch (error) {
+        console.error('Failed to fetch blog posts:', error)
+    }
+}
+
+// Function to navigate to a random blog post
+function goToRandomBlogPost() {
+    if (blogPosts.value.length === 0) {
+        alert('No blog posts available!')
+        return
+    }
+    const randomIndex = Math.floor(Math.random() * blogPosts.value.length)
+    const randomBlogPost = blogPosts.value[randomIndex]
+    router.push({ name: 'blogPost', params: { id: randomBlogPost.id } })
+}
+</script>
 
 <style lang="scss" scoped>
 .blog-posts-greeting {
