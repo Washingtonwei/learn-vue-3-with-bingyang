@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "vue": "^3.4.21",
     "vue-router": "^4.5.0"
   },
