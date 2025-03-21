@@ -18,9 +18,11 @@
 </template>
 
 <script setup>
-import { login } from '@/apis/auth'
+import { login, getUserRole } from '@/apis/auth'
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { vipRoute } from '@/router/dynamicRoutes'
+import { useNavStore } from '@/stores/navStore'
 
 const username = ref('')
 const password = ref('')
@@ -28,9 +30,21 @@ const password = ref('')
 const router = useRouter()
 const route = useRoute()
 
+const { updateNavRoutes } = useNavStore()
+
 async function handleLogin() {
     try {
         await login(username.value, password.value)
+
+        const userRole = getUserRole()
+
+        // Dynamically add VIP route if the user is a VIP and route is not already added
+        if (userRole === 'vip' &&
+            !router.hasRoute('vipExclusive')) {
+            router.addRoute('mainLayout', vipRoute) // Add VIP route as a child of mainLayout
+            updateNavRoutes() // Update navigation store to reflect new routes
+        }
+
         // Redirect to the page the user originally wanted to visit, or fallback to home
         const redirectPath = route.query.redirect || { name: 'home' }
         router.replace(redirectPath)
